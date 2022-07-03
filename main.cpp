@@ -562,14 +562,27 @@
 
 // µÝ¹éº¯Êý
 // ------------------------------------------------
-int factiorial(int num);
-
-int main() {
-    int x = 5;
-
-    printf("The fartorial of %d is %d\n", x, factiorial(x));
-
-    return 0;
-}
-
-// function definition
+//int factorial(int num);
+//
+//int main() {
+//    int x = 5;
+//
+//    printf("The factorial of %d is %d\n", x, factorial(x));
+//
+//    return 0;
+//}
+//
+//// function definition
+//int factorial(int num) {
+//    if (num == 1)
+//        return 1;
+//    else
+//        return num * factorial(num - 1);
+//}
+/*
+ *  2*factorial(1)
+ *  3*factorial(2)
+ *  4*factorial(3)
+ *  5*factorial(4)
+ */
+// ------------------------------------------------
