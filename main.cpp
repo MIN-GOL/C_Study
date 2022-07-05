@@ -899,12 +899,14 @@
 // 字符串
 // -----------------------------------------------------------------------
 //int main() {
+//    /* C中的字符串是一个以NULL字符'\0'结尾的字符数组 */
 //    char str1[6] = "hello";
 //    char str2[ ] = "world";  /* size 6 */
 //    char str3[6] = {'h', 'e', 'l', 'l', 'o', '\0'};
 //    char str4[ ] = {'h', 'e', 'l', 'l', 'o', '\0'}; /* size 6 */
 //
 //    /*
+//     * 为了安全，方便地使用字符串，可以使用下面显示的“标准库”字符串函数。不要忘记引入<string.h>头文件
 //     * strlen() -获取字符串的长度
 //     * strcat()-合并两个字符串
 //     * strcpy()-将一个字符串复制到另一个
@@ -915,3 +917,147 @@
 //     */
 //}
 // -----------------------------------------------------------------------
+
+
+// 字符串输入
+// -----------------------------------------------------------------------
+//int main() {
+//    // scanf 输入
+//    char first_name[25];
+//    int age;
+//    printf("Enter your first name and age: \n");
+//    scanf("%s %d", first_name, &age);
+//
+//    // gets 输入
+//    char full_name[50];
+//    printf("Enter your full name: \n");
+//    gets(full_name);
+//
+//    // fgets 输入
+//    char name[50];
+//    printf("Enter your name: \n");
+//    fgets(name, 50, stdin);
+//
+//    return 0;
+//}
+// -----------------------------------------------------------------------
+
+
+// 字符串输出
+// -----------------------------------------------------------------------
+/* 字符串输出由fputs()，putf()和printf()函数处理 */
+//int main() {
+//    char city[40];
+//    printf("Enter your favorite city: \n");
+//    gets(city);
+//    // 这里为了安全起见 可以使用 fgets(city, 40, stdin);
+//    printf("使用fputs(): ");
+//    fputs(city, stdout);
+//    printf("使用puts(): ");
+//    puts(city);                 // puts() 将在输出中添加换行符
+//    printf(" is a fun city.");
+//
+//    return 0;
+//}
+// -----------------------------------------------------------------------
+
+
+// sprintf 和 sscanf 函数
+// -----------------------------------------------------------------------
+//int main() {
+//    // sprintf() 函数：创建格式化的字符串
+//    char info[100];
+//    char dept[ ] = "HR";
+//    int emp = 75;
+//    /* %s -> 字符串  %d -> 整数 */
+//    sprintf(info, "The %s dept has %d employees.", dept, emp);
+//    printf("%s\n", info);
+//    // 输出 -> "The HR dept has 75 employees."
+//
+//
+//    // sscanf() 函数：用于扫描字符串中的值 该函数从字符串中读取值，并将其存储在相应的变量地址中
+//    char info_1[ ] = "Snoqualmie WA 13190";
+//    char city[50];
+//    char state[50];
+//    int population;
+//    sscanf(info_1, "%s %s %d", city, state, &population);
+//    printf("%d people live in %s, %s.", population, city, state);
+//    /* MINGOL笔记： 忘记指针内存的使用了 测试一下hhh */
+//    printf("%d", *&population);
+//    return 0;
+//}
+// -----------------------------------------------------------------------
+
+
+// string.h库
+// -----------------------------------------------------------------------
+//# include <string.h>
+//int main() {
+//    char s1[ ] = "The grey fox";
+//    char s2[ ] = " jumped.";
+//    /*
+//     * 其他的string.h函数包括：
+//     * strncat(str1, str2, n) 将str2的前n个字符追加（连接）到str1的末尾，并返回指向str1的指针。
+//     * strncpy(str1, str2, n) 将str2的前n个字符复制到str1。
+//     * strcmp(str1, str2) 当str1等于str2时返回0，在 str1 <str2 时返回小于0，在 str1> str2 时返回大于0。
+//     * strncmp(str1, str2, n) 当str1的前n个字符等于str2的前n个字符时，返回0；当str1 <str2时，小于0；当str1> str2时，大于0。
+//     * strchr(str1, c) 返回指向str1中首次出现的char c的指针，如果找不到字符，则返回NULL。
+//     * strrchr(str1,c) 反向搜索str1并返回一个指向char c在str1中位置的指针；如果找不到字符，则返回NULL。
+//     * strstr(str1,str2) 返回指向str1中首次出现的str2的指针，如果未找到str2，则返回NULL。
+//     */
+//    strcat(s1, s2);
+//    printf("%s\n", s1);
+//    printf("Length of s1 is %d\n", strlen(s1));
+//    strcpy(s1, s2);
+//    printf("s1 is now %s \n", s1);
+//    int result = strcmp(s2, s1);
+//    printf("%d\n", result);
+//
+//    return 0;
+//}
+// -----------------------------------------------------------------------
+
+
+// 将字符串转换为数字
+// -----------------------------------------------------------------------
+//#include <stdio.h>
+//int main() {
+//    /*将数字字符串转换为数值是C编程中的常见任务，通常用于防止运行时错误。
+//    读取字符串比期望数值更容易出错，用户可能不小心键入“ o”而不是“ 0”（零）。
+//    stdio.h库包含以下用于将字符串转换为数字的函数：
+//    int atoi(str) 代表ASCII转成整数。将str转换为等效的int值。如果第一个字符不是数字或未遇到任何数字，则返回0。
+//    double atof(str)表示ASCII转成浮动。将str转换为等效的double值。如果第一个字符不是数字或未遇到数字，则返回0.0。
+//    long int atol(str) 表示ASCII转成long int。将str转换为等效的长整数值。如果第一个字符不是数字或未遇到任何数字，则返回0。
+//     */
+//    char input[10];
+//    int num;
+//
+//    printf("Enter a number: ");
+//    gets(input);
+//    num = atoi(input);
+//    printf("The number is %d\n", num);
+//    // 注意，atoi() 缺少错误处理，如果要确保已完成正确的错误处理，建议使用strtol()
+//
+//    return 0;
+//}
+// -----------------------------------------------------------------------
+
+
+// 字符串数组
+// -----------------------------------------------------------------------
+//int main() {
+//    char trip[3][15] = {        // 声明一个包含3个元素的数组，每个元素包含15个字符的字符串
+//        "Phone",
+//        "Computer",
+//        "Tablet"
+//    };
+//
+//    printf("Please bring the following:\n");
+//    for (int i=0; i<3; i++) {
+//        printf("%d. %s\n", i+1, trip[i]);
+//    }
+//}
+// -----------------------------------------------------------------------
+
+
+//

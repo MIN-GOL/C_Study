@@ -2,8 +2,19 @@
   <dictionary name="WMINGOL">
     <words>
       <w>abcd</w>
+      <w>fgets</w>
+      <w>fputs</w>
       <w>putchar</w>
+      <w>putf</w>
       <w>scanf</w>
+      <w>sscanf</w>
+      <w>strchr</w>
+      <w>strncat</w>
+      <w>strncmp</w>
+      <w>strncpy</w>
+      <w>strrchr</w>
+      <w>strstr</w>
+      <w>strtol</w>
     </words>
   </dictionary>
 </component>
