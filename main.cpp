@@ -1060,4 +1060,93 @@
 // -----------------------------------------------------------------------
 
 
+// 函数指针
+// -----------------------------------------------------------------------
+//void say_hello(int num_times);
 //
+//int main() {
+//    void (*funptr)(int);
+//    funptr = say_hello;     // 这里用指针 funptr指向 say_hello函数
+//    funptr(3);
+//
+//    return 0;
+//}
+//
+//void say_hello(int num_times) {
+//    int k;
+//    for (k=0; k<num_times; k++) {
+//        printf("Hello\n");
+//    }
+//}
+// -----------------------------------------------------------------------
+
+
+// 函数指针数组
+// -----------------------------------------------------------------------
+//#include <stdio.h>
+///* 声明加减乘除函数 */
+//int add(int num1, int num2);
+//int subtract(int num1, int num2);
+//int multiply(int num1, int num2);
+//int divide(int num1, int num2);
+//
+//int main() {
+//    int x, y, choice, result;
+//    int (*op[4])(int, int);
+//
+//    op[0] = add;
+//    op[1] = subtract;
+//    op[2] = multiply;
+//    op[3] = divide;
+//
+//    printf("Enter two integers: ");
+//    scanf("%d%d", &x, &y);
+//    printf("Enter 0 to add, 1 to subtract, 2 to multiply, or 3 to divide: ");
+//    scanf("%d", &choice);
+//    result = op[choice](x, y);
+//    printf("%d", result);
+//
+//    return 0;
+//}
+//
+//int add(int x, int y) {
+//    return(x + y);
+//}
+//
+//int subtract(int x, int y) {
+//    return(x - y);
+//}
+//
+//int multiply(int x, int y) {
+//    return(x * y);
+//}
+//
+//int divide(int x, int y) {
+//    if (y != 0)
+//        return (x / y);
+//    else
+//        return 0;
+//}
+// -----------------------------------------------------------------------
+
+
+// 空指针
+// -----------------------------------------------------------------------
+//int main() {
+//    int x = 33;
+//    float y = 12.4;
+//    char c = 'a';
+//    void *ptr;
+//
+//    ptr = &x;
+//    printf("void ptr points to %d\n", *(int *)ptr);
+//    ptr = &y;
+//    printf("void ptr points to %f\n", *(float *)ptr);
+//    ptr = &c;
+//    printf("void ptr points to %c\n", *(char *)ptr);
+//
+//    return 0;
+//}
+// -----------------------------------------------------------------------
+
+
