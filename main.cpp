@@ -1084,7 +1084,7 @@
 // 函数指针数组
 // -----------------------------------------------------------------------
 //#include <stdio.h>
-///* 声明加减乘除函数 */
+// /* 声明加减乘除函数 */
 //int add(int num1, int num2);
 //int subtract(int num1, int num2);
 //int multiply(int num1, int num2);
