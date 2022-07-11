@@ -9,6 +9,7 @@
       <w>scanf</w>
       <w>sscanf</w>
       <w>strchr</w>
+      <w>strcpy</w>
       <w>strncat</w>
       <w>strncmp</w>
       <w>strncpy</w>
