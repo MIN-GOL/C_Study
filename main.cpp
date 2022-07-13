@@ -1290,4 +1290,164 @@
 // -----------------------------------------------------------------------
 
 
+// 结构与结构
+// -----------------------------------------------------------------------
+/*结构的成员也可以是结构*/
+//typedef struct {
+//    int x;
+//    int y;
+//} point;
 //
+//typedef struct {
+//    float radius;
+//    point center;
+//} circle;
+//
+//int main() {
+//    circle c = {4.5, {1, 3}};
+//    printf("%3.1f %d,%d", c.radius, c.center.x, c.center.y);
+//}
+// -----------------------------------------------------------------------
+
+
+// 指向结构的指针
+// -----------------------------------------------------------------------
+/*
+ * 像指向变量的指针一样，也可以定义指向结构的指针。
+ * struct myStruct *struct_ptr;
+ * 定义一个指向myStruct结构的指针。
+ * struct_ptr = &struct_var;
+ * 将结构变量 struct_var 的地址存储在指针struct_ptr中。
+ * struct_ptr -> struct_mem;
+ * 访问结构成员struct_mem的值。
+ */
+//struct student{
+//    char name[50];
+//    int number;
+//    int age;
+//};
+//
+//// Struct pointer as a function parameter
+//void showStudentData(struct student *st) {
+//    printf("\nStudent:\n");
+//    printf("Name: %s\n", st->name);
+//    printf("Number: %d\n", st->number);
+//    printf("Age: %d\n", st->age);
+//}
+//
+//int main() {
+//    struct student st1 = {"Krishna", 5, 21};
+//    showStudentData(&st1);
+//}
+// -----------------------------------------------------------------------
+
+
+// 结构数组
+// -----------------------------------------------------------------------
+/*
+ * 数组可以存储任何数据类型的元素，包括结构。
+   声明结构数组后，可以使用索引号访问元素。
+   然后使用点运算符访问元素的成员，如程序中所示：
+ */
+//#include <stdio.h>
+//
+//typedef struct {
+//    int h;
+//    int w;
+//    int l;
+//} box;
+//
+//int main() {
+//    box boxes[3] = {{10, 20, 30}, {40, 50, 60}, {70, 80, 90}};
+//    int k, volume;
+//
+//    for (k=0; k<3; k++) {
+//        volume = boxes[k].h * boxes[k].w * boxes[k].l;
+//        printf("box %d volume %d\n", k, volume);
+//    }
+//    return 0;
+//}
+// -----------------------------------------------------------------------
+
+
+// 共用体
+// -----------------------------------------------------------------------
+/*
+ * 共用体和结构体很相似 关键字从 struct 变成 union
+ * 区别在于：
+ * 结构体定义了一个由多个数据成员组成的特殊类型
+ * 共用体定义了一块为所有数据成员共享的内存
+ * 共用体也称为联合体，它使几种不同类型的变量存放到同一段内存单元中。所以共用体在同一时刻只能有一个值，它属于某一个数据成员。
+ * 由于所有成员位于同一块内存，因此共用体的大小就等于最大成员的大小
+ */
+//union val {
+//    int int_num;
+//    float float_num;
+//    char str[20];
+//};
+//
+//int main() {
+//    union val u1;
+//    union val u2;
+//    u2 = u1;
+//}
+// -----------------------------------------------------------------------
+
+
+// 访问共用体成员
+// -----------------------------------------------------------------------
+/* 你可以使用 . (点符号) 来访问共用体的成员。*/
+//#include <cstring>
+//union val {
+//    int int_num;
+//    float float_num;
+//    char str[20];
+//};
+//
+//int main() {
+//    union val test;
+//
+//    test.int_num = 123;
+//    test.float_num = 3.14;
+//    strcpy(test.str, "Hello World");
+//
+//    printf("%d\n", test.int_num);
+//    printf("%f\n", test.float_num);
+//    printf("%s\n", test.str);
+//
+//    return 0;
+//}
+// -----------------------------------------------------------------------
+
+
+// 结构体内共用体
+// -----------------------------------------------------------------------
+/* 因为在结构中可以具有一个成员来跟踪哪个联合成员存储值，所以通常在结构内使用联合。
+   例如，在以下程序中，车辆结构使用车辆识别号（VIN）或分配的ID，但不能同时使用两者：
+*/
+//#include <cstring>
+//typedef struct {
+//    char make[20];
+//    int model_year;
+//    int id_type; /* 0 for id_num, 1 for VIN */
+//    union {
+//        int id_num;
+//        char VIN[20];
+//    } id;
+//} vehicle;
+//
+//int main() {
+//    vehicle car1;
+//    strcpy(car1.make, "Ford");
+//    car1.model_year = 2017;
+//    car1.id_type = 0;
+//    car1.id.id_num = 123098;
+//
+//    printf("Make: %s\n", car1.make);
+//    printf("Model Year: %d\n", car1.model_year);
+//    if (car1.id_type == 0)
+//        printf("ID: %d\n", car1.id.id_num);
+//    else
+//        printf("ID: %s\n", car1.id.VIN);
+//}
+// -----------------------------------------------------------------------

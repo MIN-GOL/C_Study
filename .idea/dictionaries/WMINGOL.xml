@@ -2,6 +2,7 @@
   <dictionary name="WMINGOL">
     <words>
       <w>abcd</w>
+      <w>cstring</w>
       <w>fgets</w>
       <w>fputs</w>
       <w>putchar</w>
